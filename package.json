@@ -1,0 +1,22 @@
+{
+  "name": "node-server",
+  "version": "1.0.0",
+  "description": "Node服务器，使用express框架。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dirkliu/node-server.git"
+  },
+  "author": "Liu7",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dirkliu/node-server/issues"
+  },
+  "homepage": "https://github.com/dirkliu/node-server#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
