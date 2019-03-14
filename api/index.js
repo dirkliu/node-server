@@ -14,9 +14,8 @@ router.get('/detail', function(req, res, next) {
   });
 });
 
-router.use(function (req, res, next) {
-  console.log('middleware end:')
-  next()
+router.post('/upload', function (req, res, next) {
+	
 })
 
 module.exports = router
