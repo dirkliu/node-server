@@ -20,12 +20,13 @@ router.get('/detail', function(req, res, next) {
 });
 
 router.post('/upload', upload.any(), function (req, res, next) {
-	console.log('fileInfos:', req.files[0].path)
+	console.log('fileInfos:', req.files[0])
+	console.log('req:', req)
 	res.json({
 		code: 0,
 		msg: 'success',
 		data: {
-			path: url.origin + '/' + req.files[0].path
+			path: req.headers.host + '/' + req.files[0].filename
 		}
 	})
 	// var des_file = "upload/" + req.files[0].originalname;
