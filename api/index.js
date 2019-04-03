@@ -20,6 +20,13 @@ router.get('/detail', function(req, res, next) {
   });
 });
 
+router.post('/imweb/login', (req, res, next) => {
+  res.json({
+    code: 0,
+    msg: 'success'
+  })
+})
+
 router.post('/upload', upload.any(), function (req, res, next) {
 	var ext = path.extname(req.files[0].originalname)
 	// res.json({
