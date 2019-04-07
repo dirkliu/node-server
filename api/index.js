@@ -1,16 +1,20 @@
+const path = require('path');
+const url = require('url');
+var fs = require('fs');
+
 var express = require('express');
 var router = express.Router();
 var multer = require('multer');
-var fs = require('fs');
-const path = require('path');
-const url = require('url');
 
+var imweb = requrie('./imweb')
 var upload = multer({dest: 'uploads'});
 
 router.use(function (req, res, next) {
   req.tag__author = 'Liu7'
   next()
 })
+
+app.use('/imweb', usersRouter);
 
 router.get('/detail', function(req, res, next) {
   res.json({
@@ -29,13 +33,6 @@ router.post('/imweb/login', (req, res, next) => {
 
 router.post('/upload', upload.any(), function (req, res, next) {
 	var ext = path.extname(req.files[0].originalname)
-	// res.json({
-	// 	code: 0,
-	// 	msg: 'success',
-	// 	data: {
-	// 		path: req.headers.host + '/' + req.files[0].filename
-	// 	}
-	// })
 	var des_file = req.files[0].path + ext;
 	fs.readFile(req.files[0].path, function (err, data) {
 		fs.writeFile(des_file, data, function (err) {
