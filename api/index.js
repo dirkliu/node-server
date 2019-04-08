@@ -6,7 +6,7 @@ var express = require('express');
 var router = express.Router();
 var multer = require('multer');
 
-var imweb = requrie('./imweb')
+var imweb = require('./imweb')
 var upload = multer({dest: 'uploads'});
 
 router.use(function (req, res, next) {
@@ -14,7 +14,7 @@ router.use(function (req, res, next) {
   next()
 })
 
-app.use('/imweb', usersRouter);
+router.use('/imweb', imweb);
 
 router.get('/detail', function(req, res, next) {
   res.json({
@@ -22,13 +22,6 @@ router.get('/detail', function(req, res, next) {
       {'tag__author': req.tag__author}
     ]
   });
-});
-
-router.post('/imweb/login', (req, res, next) => {
-  res.json({
-    code: 0,
-    msg: 'success'
-  })
 })
 
 router.post('/upload', upload.any(), function (req, res, next) {
