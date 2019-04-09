@@ -1,5 +1,6 @@
 const MongoClient = require('mongodb').MongoClient
 const findDocuments = require('./findDocuments')
+const insertDocuments = require('./insertDocuments')
 const assert = require('assert')
 // Connection URL
 const url = 'mongodb://localhost:27017'
@@ -13,8 +14,10 @@ client.connect(function(err) {
   console.log("Connected successfully to server")
   const db = client.db(dbName)
 
-  findDocuments(db, function() {
-    client.close()
-  })
+  //insertDocuments(db, function () {
+    findDocuments(db, function() {
+      client.close()
+    })
+  // })
   // client.close()
 })
