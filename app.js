@@ -22,9 +22,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'uploads')));
 
-app.use('/', indexRouter);
+app.use('/', [indexRouter, api]);
 app.use('/users', usersRouter);
-app.use('/api', api);
+// app.use('/', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

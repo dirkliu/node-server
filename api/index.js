@@ -19,7 +19,13 @@ router.use('/imweb', imweb);
 router.get('/detail', function(req, res, next) {
   res.json({
     data: [
-      {'tag__author': req.tag__author}
+      {
+				"tag__author": req.tag__author,
+				"list": [{
+					"id": 1,
+					"name": "test"
+				}]
+			}
     ]
   });
 })
