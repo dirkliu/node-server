@@ -7,8 +7,10 @@
   "author": "Liu7 <liuqi0702@126.com>",
   "license": "MIT",
   "dependencies": {
+    "ejs": "^3.1.2",
     "koa": "^2.11.0",
-    "koa-router": "^8.0.8"
+    "koa-views": "^6.2.1",
+    "koa2-router": "^2.0.1"
   },
   "devDependencies": {
     "supports-color": "^7.1.0"

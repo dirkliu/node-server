@@ -1,7 +1,11 @@
+const path = require('path')
 const Koa = require('koa')
-const app = new Koa()
+const views = require('koa-views')
+const router = new require('koa2-router')()
+const controllers = require('./controllers')
 const api = require('./api')
 
+const app = new Koa()
 // x-response-time
 app.use(async(ctx, next) => {
   const start = Date.now()
@@ -10,7 +14,7 @@ app.use(async(ctx, next) => {
   ctx.set('X-Response-Time', `${ms}ms`)
 })
 
-// loger
+// logerr
 app.use(async (ctx, next) => {
   const start = Date.now()
   await next()
@@ -18,9 +22,9 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}`)
 })
 
-// app.use(async ctx => {
-//   ctx.body = 'Hello Koa';
-// })
-app.use(api)
+app.use(views(path.join(__dirname, '/views'), { extension: 'ejs' }))
+router.use(controllers)
+router.use('/api', api)
+app.use(router)
 
 app.listen(3000)

@@ -1,17 +1,11 @@
-const router = require('koa-router')()
+const Router = require('koa2-router')
+const apiRouter = new Router()
 
-router.get('/', async (ctx, next) => {
-  ctx.body = 'hello world'
-})
-
-router.get('/users', async (ctx, next) => {
+apiRouter.get('/', async (ctx, next) => {
   ctx.body = [{
-    id: 1,
-    name: 'uee'
-  }, {
-    id: 2,
-    name: 'text'
+    name: 'liu',
+    age: 14
   }]
 })
 
-module.exports = router.routes()
+module.exports = apiRouter
