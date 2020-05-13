@@ -29,6 +29,10 @@ console.log('node versions:', process.versions)
 // 项目的版本
 console.log('koa version:', require('koa/package.json').version)
 
+process.exit()
+
+console.log('exited')
+
 app.use(views(path.join(__dirname, '/views'), { extension: 'ejs' }))
 router.use(controllers)
 router.use('/api', api)
