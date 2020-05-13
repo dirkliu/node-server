@@ -22,6 +22,13 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}`)
 })
 
+// node版本
+console.log('node version:', process.version)
+// node及其依赖的版本
+console.log('node versions:', process.versions)
+// 项目的版本
+console.log('koa version:', require('koa/package.json').version)
+
 app.use(views(path.join(__dirname, '/views'), { extension: 'ejs' }))
 router.use(controllers)
 router.use('/api', api)
