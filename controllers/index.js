@@ -17,4 +17,9 @@ router.get('/user', async (ctx, next) => {
   })
 })
 
+router.get('/upload', async (ctx, next) => {
+  await ctx.render('upload',  {
+  })
+})
+
 module.exports = router

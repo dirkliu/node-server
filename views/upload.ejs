@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="test"/>
+</head>
+
+<body>
+  <form name="uploadForm" method="post" action="/api/upload" enctype="multipart/form-data">
+      <input type="file" name="file" id="file"/>
+      <button type="bsubmit">上传</button>
+  </form>
+</body>
+
+<script>
+document.querySelector("#file").addEventListener('change', function () {
+    // fetch('/api/upload')
+}, false)
+</script>
+
+</html>

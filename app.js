@@ -1,5 +1,8 @@
 const path = require('path')
 const Koa = require('koa')
+const fs = require('fs');
+const os = require('os');
+const koaBody = require('koa-body');
 const views = require('koa-views')
 const router = new require('koa2-router')()
 const controllers = require('./controllers')
@@ -29,9 +32,18 @@ console.log('node versions:', process.versions)
 // 项目的版本
 console.log('koa version:', require('koa/package.json').version)
 
-process.exit()
+app.use(koaBody({ multipart: true }));
 
-console.log('exited')
+app.use(async (ctx, next) => {
+  if ('POST' != ctx.method || ctx.path !== '/api/upload') return await next();
+   const file = ctx.request.files.file
+  const reader = fs.createReadStream(file.path)
+  console.log('os.tmpdir():', os.tmpdir())
+  const stream = fs.createWriteStream(path.join(os.tmpdir(), Math.random().toString()))
+  reader.pipe(stream)  
+
+  ctx.redirect('/'); 
+})
 
 app.use(views(path.join(__dirname, '/views'), { extension: 'ejs' }))
 router.use(controllers)
