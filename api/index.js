@@ -1,3 +1,5 @@
+const fs = require('fs')
+const path = require('path')
 const Router = require('koa2-router')
 const apiRouter = new Router()
 
@@ -8,15 +10,16 @@ apiRouter.get('/', async (ctx, next) => {
   }]
 })
 
-// apiRouter.post('/upload', async (ctx, next) => {
-//   if ('POST' != ctx.method) return await next();
-//   console.log('ctx.request:', ctx.request)
-//   const file = ctx.request.files.file
-//   const reader = fs.createReadStream(file.path)
-//   const stream = fs.createWriteStream(path.join(os.tmpdir(), Math.random().toString()))
-//   reader.pipe(stream)  
-
-//   ctx.redirect('/');
-// })
+apiRouter.post('/upload', async (ctx, next) => {
+  const file = ctx.request.files.file
+  console.log('file:', file)
+  const reader = fs.createReadStream(file.path)
+  const fileInfo = path.parse(file.name)
+  console.log('fileInfo:', fileInfo)
+  const uploadFileName = path.join(__dirname, '../uploads', fileInfo.name + Date.now() + fileInfo.ext)
+  const stream = fs.createWriteStream(uploadFileName)
+  reader.pipe(stream)  
+  ctx.redirect('/');
+})
 
 module.exports = apiRouter
