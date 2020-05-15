@@ -6,6 +6,9 @@
   "repository": "git@github.com:dirkliu/node-server.git",
   "author": "Liu7 <liuqi0702@126.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "node app.js"
+  },
   "dependencies": {
     "ejs": "^3.1.2",
     "koa": "^2.11.0",
