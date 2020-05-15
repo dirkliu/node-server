@@ -24,11 +24,11 @@ app.use(async (ctx, next) => {
 })
 
 // node版本
-console.log('node version:', process.version)
+// console.log('node version:', process.version)
 // node及其依赖的版本
-console.log('node versions:', process.versions)
+// console.log('node versions:', process.versions)
 // 项目的版本
-console.log('koa version:', require('koa/package.json').version)
+// console.log('koa version:', require('koa/package.json').version)
 
 app.use(koaBody({ multipart: true }));
 

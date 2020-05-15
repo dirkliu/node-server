@@ -8,4 +8,5 @@ node中间件开发，使用koa
 * [DEBUG调试](https://github.com/visionmedia/debug)
 * [示例](https://github.com/koajs/examples)  
 * [ejs](https://ejs.bootcss.com/)  
-* [nodejs](http://nodejs.cn/api/)
+* [nodejs](http://nodejs.cn/api/)  
+* [nodemon](https://nodemon.io/): 开发模式下node自动重启
