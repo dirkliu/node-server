@@ -3,6 +3,8 @@ const path = require('path')
 const Router = require('koa2-router')
 const apiRouter = new Router()
 
+const { logger } = require('../logger');
+
 apiRouter.get('/', async (ctx, next) => {
   ctx.body = [{
     name: 'liu',
@@ -12,7 +14,10 @@ apiRouter.get('/', async (ctx, next) => {
 
 apiRouter.post('/upload', async (ctx, next) => {
   const file = ctx.request.files.file
-  console.log('file:', file)
+  if (!file) {
+    logger.error('请选择文件')
+    return 
+  }
   const reader = fs.createReadStream(file.path)
   const fileInfo = path.parse(file.name)
   console.log('fileInfo:', fileInfo)

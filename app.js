@@ -5,22 +5,15 @@ const views = require('koa-views')
 const router = new require('koa2-router')()
 const controllers = require('./controllers')
 const api = require('./api')
-
 const app = new Koa()
-// x-response-time
-app.use(async(ctx, next) => {
-  const start = Date.now()
-  await next()
-  const ms = Date.now() - start
-  ctx.set('X-Response-Time', `${ms}ms`)
-})
+const { logger, accessLogger } = require('./logger');
 
-// logerr
+app.use(accessLogger())
 app.use(async (ctx, next) => {
-  const start = Date.now()
+  const start = new Date()
   await next()
-  const ms = Date.now() - start
-  console.log(`${ctx.method} ${ctx.url} - ${ms}`)
+  const ms = new Date() - start
+  logger.info(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
 // node版本
@@ -36,5 +29,10 @@ app.use(views(path.join(__dirname, '/views'), { extension: 'ejs' }))
 router.use(controllers)
 router.use('/api', api)
 app.use(router)
+
+app.on('error', function (err, ctx) {
+  console.log(err)
+  logger.error('server error', err, ctx)
+})
 
 app.listen(3000)
