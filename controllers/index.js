@@ -7,13 +7,13 @@ router.get('/', async (ctx, next) => {
 router.get('/user', async (ctx, next) => {
   await ctx.render('user', {
     user: {
-        name: {
-          first: 'Tobi',
-          last: 'Holowaychuk'
-        },
-        species: 'ferret',
-        age: 3
-      }
+      name: {
+        first: 'Tobi',
+        last: 'Holowaychuk'
+      },
+      species: 'ferret',
+      age: 3
+    }
   })
 })
 

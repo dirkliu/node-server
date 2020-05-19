@@ -30,7 +30,7 @@ router.use(controllers)
 router.use('/api', api)
 
 app.on('error', async (err, ctx) => {
-  console.log('servered error')
+  // console.log('servered error')
   logger.error('server error', err, ctx)
 })
 

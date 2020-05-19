@@ -14,7 +14,6 @@ apiRouter.get('/', async (ctx, next) => {
 
 apiRouter.post('/upload', async (ctx, next) => {
   const file = ctx.request.files.file
-  fdasfa +dfa
   if (!file || !file.name) {
     logger.error('请选择文件')
   }
