@@ -28,11 +28,11 @@ app.use(koaBody({ multipart: true }));
 app.use(views(path.join(__dirname, '/views'), { extension: 'ejs' }))
 router.use(controllers)
 router.use('/api', api)
-app.use(router)
 
-app.on('error', function (err, ctx) {
-  console.log(err)
+app.on('error', async (err, ctx) => {
+  console.log('servered error')
   logger.error('server error', err, ctx)
 })
 
+app.use(router)
 app.listen(3000)

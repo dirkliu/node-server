@@ -1,0 +1,52 @@
+
+[2020-05-19T17:39:53.704] [ERROR] application - 请选择文件
+[2020-05-19T17:41:41.687] [ERROR] application - server error ReferenceError: fdasfa is not defined
+    at D:\projects-github\node-server\api\index.js:17:3
+    at Layer.handle (D:\projects-github\node-server\node_modules\koa2-router\lib\layer.js:84:9)
+    at next (D:\projects-github\node-server\node_modules\koa2-router\lib\route.js:146:18)
+    at Route.dispatch (D:\projects-github\node-server\node_modules\koa2-router\lib\route.js:129:10)
+    at Route.handle (D:\projects-github\node-server\node_modules\koa2-router\lib\route.js:106:14)
+    at Layer.handle (D:\projects-github\node-server\node_modules\koa2-router\lib\layer.js:84:9)
+    at D:\projects-github\node-server\node_modules\koa2-router\lib\index.js:427:22
+    at Function.process_params (D:\projects-github\node-server\node_modules\koa2-router\lib\index.js:482:12)
+    at next (D:\projects-github\node-server\node_modules\koa2-router\lib\index.js:425:17)
+    at Function.dispatch (D:\projects-github\node-server\node_modules\koa2-router\lib\index.js:345:10)
+    at Function.handle (D:\projects-github\node-server\node_modules\koa2-router\lib\index.js:246:16)
+    at router (D:\projects-github\node-server\node_modules\koa2-router\lib\index.js:130:19)
+    at Layer.handle (D:\projects-github\node-server\node_modules\koa2-router\lib\layer.js:84:9)
+    at trim_prefix (D:\projects-github\node-server\node_modules\koa2-router\lib\index.js:465:18)
+    at D:\projects-github\node-server\node_modules\koa2-router\lib\index.js:430:14
+    at Function.process_params (D:\projects-github\node-server\node_modules\koa2-router\lib\index.js:482:12) {
+  request: {
+    method: 'POST',
+    url: '/api/upload',
+    header: {
+      host: 'localhost:3000',
+      connection: 'keep-alive',
+      'content-length': '188',
+      'cache-control': 'max-age=0',
+      'upgrade-insecure-requests': '1',
+      origin: 'http://localhost:3000',
+      'content-type': 'multipart/form-data; boundary=----WebKitFormBoundaryTP49hgXUUXDZ3dCf',
+      'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36',
+      accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+      'sec-fetch-site': 'same-origin',
+      'sec-fetch-mode': 'navigate',
+      'sec-fetch-user': '?1',
+      'sec-fetch-dest': 'document',
+      referer: 'http://localhost:3000/upload',
+      'accept-encoding': 'gzip, deflate, br',
+      'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8'
+    }
+  },
+  response: {
+    status: 404,
+    message: 'Not Found',
+    header: [Object: null prototype] {}
+  },
+  app: { subdomainOffset: 2, proxy: false, env: 'development' },
+  originalUrl: '/api/upload',
+  req: '<original node req>',
+  res: '<original node res>',
+  socket: '<original node socket>'
+}

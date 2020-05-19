@@ -14,13 +14,12 @@ apiRouter.get('/', async (ctx, next) => {
 
 apiRouter.post('/upload', async (ctx, next) => {
   const file = ctx.request.files.file
-  if (!file) {
+  fdasfa +dfa
+  if (!file || !file.name) {
     logger.error('请选择文件')
-    return 
   }
   const reader = fs.createReadStream(file.path)
   const fileInfo = path.parse(file.name)
-  console.log('fileInfo:', fileInfo)
   const uploadFileName = path.join(__dirname, '../uploads', fileInfo.name + Date.now() + fileInfo.ext)
   const stream = fs.createWriteStream(uploadFileName)
   reader.pipe(stream)  
