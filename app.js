@@ -8,6 +8,16 @@ const api = require('./api')
 const app = new Koa()
 const { logger, accessLogger } = require('./logger');
 
+const mysql = require('mysql');
+
+app.context.dbPool = mysql.createPool({
+  connectionLimit : 10,
+  host            : '193.112.253.42',
+  user            : 'develop',
+  password        : 'Liuqi4141/',
+  database        : 'blog'
+})
+
 app.use(accessLogger())
 app.use(async (ctx, next) => {
   const start = new Date()

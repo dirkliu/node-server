@@ -9,7 +9,8 @@ node中间件开发，使用koa
 * [示例](https://github.com/koajs/examples)  
 * [ejs](https://ejs.bootcss.com/)  
 * [nodejs](http://nodejs.cn/api/)  
-* [nodemon](https://nodemon.io/): 开发模式下node自动重启
+* [nodemon](https://nodemon.io/): 开发模式下node自动重启  
+* [mysql](https://github.com/mysqljs/mysql)
 
 #### 服务地址  
 (http://193.112.253.42:3000)
