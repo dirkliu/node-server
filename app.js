@@ -1,5 +1,6 @@
 const path = require('path')
 const Koa = require('koa')
+const serve = require('koa-static')
 const koaBody = require('koa-body');
 const views = require('koa-views')
 const router = new require('koa2-router')()
@@ -17,6 +18,8 @@ app.context.dbPool = mysql.createPool({
   password        : 'Liuqi4141/',
   database        : 'blog'
 })
+
+app.use(serve('assets'));
 
 app.use(accessLogger())
 app.use(async (ctx, next) => {
