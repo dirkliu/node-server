@@ -11,8 +11,8 @@ apiRouter.get('/', async (ctx, next) => {
 
     connection.query('SELECT * FROM blog', function (error, results, fields) {
       // When done with the connection, release it.
+       console.log('results:', results)
       connection.release();
-  
       // Handle error after the release.
       if (error) throw error;
   
