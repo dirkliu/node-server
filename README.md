@@ -10,7 +10,10 @@ node中间件开发，使用koa
 * [ejs](https://ejs.bootcss.com/)  
 * [nodejs](http://nodejs.cn/api/)  
 * [nodemon](https://nodemon.io/): 开发模式下node自动重启  
-* [mysql](https://github.com/mysqljs/mysql)
+* [mysql](https://github.com/mysqljs/mysql)  
+* [socket.io](https://socket.io/docs/):客户端与服务器实时，双向通信解决方案  
+* [ws](https://github.com/websockets/ws):基于node.js的websocket库  
+* [robust-websocket](https://github.com/nathanboktae/robust-websocket): 强大，重连的websocket客户端
 
 #### 服务地址  
 (http://193.112.253.42:3000)
