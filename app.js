@@ -19,7 +19,8 @@ app.context.dbPool = mysql.createPool({
   database        : 'blog'
 })
 
-app.use(serve('assets'));
+// app.use(serve('assets'))
+app.use(serve('dist'))
 
 app.use(accessLogger())
 app.use(async (ctx, next) => {
